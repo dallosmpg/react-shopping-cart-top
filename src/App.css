@@ -1,0 +1,33 @@
+:root {
+    --svg-color: #4f0842;
+}
+
+.wrapper {
+    height: 100vh;
+    
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.custom-shape-divider-bottom-1683553058 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1683553058 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 143px;
+}
+
+.custom-shape-divider-bottom-1683553058 .shape-fill {
+    transition: fill .3s ease-in-out;
+
+    fill: var(--svg-color);
+}  
