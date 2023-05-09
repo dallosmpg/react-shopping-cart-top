@@ -31,7 +31,7 @@ nav.navigation {
 }
 .navigation li {
     margin: 1rem;
-    transition: all .2s ease-in-out;    
+    transition: all var(--default-transition-time) ease-in-out;    
 }
 
 .navigation li > a {    
@@ -43,7 +43,7 @@ nav.navigation {
     border: 3px solid white;
     border-radius: 10px;
 
-    transition: all .2s ease-in-out;
+    transition: all var(--default-transition-time) ease-in-out;
 }
 
 .navigation li:hover {
@@ -51,15 +51,14 @@ nav.navigation {
 }
 
 .navigation li > a.home-nav:hover {
-    background-color: #4f0842;
+    background-color: #8d0f75;
 }
 
 .navigation li > a.shop-nav:hover {
-    background-color: #546770;
-
+    background-color: #a1c5d7;
 }
 
 .navigation li > a.about-nav:hover {
-    background-color: #400446;
+    background-color: #71087b;
 
 }

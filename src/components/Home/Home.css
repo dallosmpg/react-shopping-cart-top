@@ -1,5 +1,6 @@
 :root {
     --coffee-img-size: 1;
+    --default-transition-time: .2s;
 }
 
 main.home {
@@ -11,12 +12,14 @@ main.home {
 
 .home-text {
     box-sizing: border-box;
+    align-items: self-start;
+    gap: 1rem;
     
     padding: 0rem 2rem;
     border-radius: 10px 10px 150px 150px;
     
     background: linear-gradient(to bottom, #1c1b22, #2e2d36);
-    transition: all 0.2s ease-in-out;
+    transition: all var(--default-transition-time) ease-in-out;
     text-align: justify;
 }
 .home-text:hover {
@@ -24,7 +27,21 @@ main.home {
     outline: 5px solid white;
 }
 
+.home-text h3 {
+    text-decoration: underline;
+    color: #bb427f;
+
+    font-size: 1.3rem;
+}
+
+.home-text h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
 .home-text a {
+    align-self: center;
+
     font-size: 1.4rem;
     font-weight: 600;
     padding: 1em .7em;
@@ -33,11 +50,12 @@ main.home {
     border: 3px solid white;
     border-radius: 10px;
 
-    transition: all .2s ease-in-out;
+    transition: all var(--default-transition-time) ease-in-out;
 }
 
 .home-text a:hover {
-    background-color: #546770;
+    background-color: #a1c5d7;
+    transform: scale(1.1);
 }
 
 .home-hero {
@@ -46,5 +64,5 @@ main.home {
 .home-hero img {
     height: 750px;
     transform: scale(var(--coffee-img-size));
-    transition: all .2s ease-in-out;
+    transition: all var(--default-transition-time) ease-in-out;
 }

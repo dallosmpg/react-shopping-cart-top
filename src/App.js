@@ -24,13 +24,14 @@ function App() {
 
   const resizeCoffeeImg = useCallback(() => {
     const target = document.querySelector('.home-hero img')
-    const coffeeImgSize = Number(window.getComputedStyle(target).getPropertyValue('--coffee-img-size'));
-    console.log(coffeeImgSize);
-    if (coffeeImgSize === 1) {
-        console.log(document.documentElement.style);
-        document.documentElement.style.setProperty('--coffee-img-size', 1.1);
-    } else {
-        document.documentElement.style.setProperty('--coffee-img-size', 1);
+    if (target) {
+      const coffeeImgSize = Number(window.getComputedStyle(target).getPropertyValue('--coffee-img-size'));
+      if (coffeeImgSize === 1) {
+          console.log(document.documentElement.style);
+          document.documentElement.style.setProperty('--coffee-img-size', 1.1);
+      } else {
+          document.documentElement.style.setProperty('--coffee-img-size', 1);
+      }
     }
 }, [])
 
