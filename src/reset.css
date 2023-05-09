@@ -1,0 +1,56 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set default font size and family */
+body {
+  font-size: 16px;
+  font-family: sans-serif;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Remove anchor text decoration */
+a {
+  text-decoration: none;
+}
+
+/* Remove button and input border */
+button,
+input {
+  border: none;
+  outline: none;
+}
+
+/* Remove user agent styles for tables */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}

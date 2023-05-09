@@ -2,20 +2,20 @@ import React from "react";
 import './Nav.css';
 import { Link } from "react-router-dom";
 
-export default function Nav() {
+export default function Nav({resizeCoffeeImg}) {
 
     return (
         <nav className="flex-center navigation">
-            <h1>FakeStore</h1>
+            <h1>The Beanery Store</h1>
             <ul className="flex-center">
                 <li>
-                    <Link to='/'>Home</Link>
+                    <Link className="home-nav" to='/'>Home</Link>
                 </li>
                 <li>
-                    <Link to='/shop'>Shop</Link>
+                    <Link onMouseEnter={resizeCoffeeImg} onMouseLeave={resizeCoffeeImg} className="shop-nav" to='/shop'>Shop</Link>
                 </li>
                 <li>
-                    <Link to='/about'>About</Link>
+                    <Link className="about-nav" to='/about'>About</Link>
                 </li>
             </ul>
         </nav>

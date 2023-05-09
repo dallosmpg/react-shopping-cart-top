@@ -1,5 +1,6 @@
 nav.navigation {
-    justify-content: space-around !important;
+    box-sizing: border-box;
+    justify-content: space-around;
 
     position: relative;
 
@@ -7,8 +8,22 @@ nav.navigation {
     background-image: linear-gradient(to bottom right, rgba(0,0,0,0.1), rgba(0,0,0,0.8)), url("../../assets/images/pngwing.com.png");
     background-blend-mode: normal;
 
-    padding: 30px;
+    border-bottom: #0e252a 8px solid;
     border-radius: 0 0 25% 10% / 0 0 60px 20px;   
+}
+
+.navigation h1 {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 22%;
+
+    position: relative;
+    transform: translateX(-65%);
+    padding: 0em 1em;
+
+    font-size: 2.5rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 0 25px 10px 0;
 }
 
 .navigation ul {
@@ -16,19 +31,35 @@ nav.navigation {
 }
 .navigation li {
     margin: 1rem;
+    transition: all .2s ease-in-out;    
 }
 
-.navigation li > a {
-    padding: 1rem .5rem;
-    text-decoration: none !important;
+.navigation li > a {    
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 1em .7em;
+    text-decoration: none;
     color: inherit;
-    border: 1px solid white;
+    border: 3px solid white;
     border-radius: 10px;
 
     transition: all .2s ease-in-out;
 }
 
-.navigation li > a:hover {
-    background-color: white;
-    color: black;
+.navigation li:hover {
+    transform: scale(1.1);
+}
+
+.navigation li > a.home-nav:hover {
+    background-color: #4f0842;
+}
+
+.navigation li > a.shop-nav:hover {
+    background-color: #546770;
+
+}
+
+.navigation li > a.about-nav:hover {
+    background-color: #400446;
+
 }

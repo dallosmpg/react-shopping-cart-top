@@ -1,4 +1,50 @@
-main {
-
+:root {
+    --coffee-img-size: 1;
 }
 
+main.home {
+    display: grid;
+    grid-template-columns: 4fr 5fr;
+
+    height: 100%;
+}
+
+.home-text {
+    box-sizing: border-box;
+    
+    padding: 0rem 2rem;
+    border-radius: 10px 10px 150px 150px;
+    
+    background: linear-gradient(to bottom, #1c1b22, #2e2d36);
+    transition: all 0.2s ease-in-out;
+    text-align: justify;
+}
+.home-text:hover {
+    background: linear-gradient(to bottom, #2e2d36, #1c1b22);
+    outline: 5px solid white;
+}
+
+.home-text a {
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 1em .7em;
+    text-decoration: none;
+    color: inherit;
+    border: 3px solid white;
+    border-radius: 10px;
+
+    transition: all .2s ease-in-out;
+}
+
+.home-text a:hover {
+    background-color: #546770;
+}
+
+.home-hero {
+    height: 100%;
+}
+.home-hero img {
+    height: 750px;
+    transform: scale(var(--coffee-img-size));
+    transition: all .2s ease-in-out;
+}
