@@ -17,4 +17,16 @@ describe('Home component', () => {
         const textElement = screen.getByText(/Welcome to the Beanery/i);
         expect(textElement).toBeInTheDocument();
       })
+
+    it('useEffect updates --svg-color property in Home', () => {
+        const setSvgColor = jest.fn();
+        render(
+            <BrowserRouter>
+                <Home setSvgColor={setSvgColor} />
+            </BrowserRouter>
+        )
+
+        expect(setSvgColor).toHaveBeenCalledWith('#4f0842');
+    });
+
 ;})
