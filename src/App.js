@@ -6,7 +6,7 @@ import Shop from './components/Shop/Shop';
 import Nav from './components/Nav/Nav';
 import About from './components/About/About';
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 
 function App() {
@@ -35,11 +35,10 @@ function App() {
     }
 }, [])
 
-
   return (
     <Router >  
     <div className="wrapper">
-      <Nav resizeCoffeeImg={resizeCoffeeImg} />
+      <Nav resizeCoffeeImg={resizeCoffeeImg} test='Test' />
         <Routes>
           <Route path="/" element={<Home resizeCoffeeImg={resizeCoffeeImg} setSvgColor={setSvgColor} />} />
           <Route path="/shop" element={<Shop setSvgColor={setSvgColor}  />} />

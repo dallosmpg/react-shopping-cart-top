@@ -5,8 +5,8 @@ import { BrowserRouter } from 'react-router-dom';
 // import userEvent from "@testing-library/user-event";
 import About from "./About.js";
 
-describe('Home component', () => {
-    it('renders correctly', () => {
+describe('About component', () => {
+    it('About comp. renders correctly', () => {
         const setSvgColor = jest.fn();
 
         render(

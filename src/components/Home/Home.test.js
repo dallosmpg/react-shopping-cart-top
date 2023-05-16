@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Home from "./Home.js";
 
 describe('Home component', () => {
-    it('renders correctly', () => {
+    it('Home comp. renders correctly', () => {
         const setSvgColor = jest.fn();
 
         render(

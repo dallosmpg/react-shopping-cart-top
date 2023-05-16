@@ -15,4 +15,5 @@ describe('Nav component', () => {
         const textElement = screen.getByText(/The Beanery Store/i);
         expect(textElement).toBeInTheDocument();
       })
+
 ;})
