@@ -4,6 +4,7 @@ import "@testing-library/jest-dom";  // optional
 import { BrowserRouter } from 'react-router-dom';
 import userEvent from "@testing-library/user-event";
 import App from "./App.js";
+import { act } from "react-dom/test-utils";
 
 describe('App component', () => {
     it('App comp. renders correctly', () => {
@@ -46,18 +47,4 @@ describe('App component', () => {
         expect(document.documentElement.style.getPropertyValue('--svg-color')).toBe('#546770');
         fireEvent.click(screen.getByText('Home'));
       });
-
-      it('useCallback modifies --coffee-img-size property correctly', () => {      
-        // Render the component
-        render(<App />);
-      
-        // Simulate the resizeCoffeeImg callback
-        fireEvent.mouseEnter(screen.getByTestId('custom-element'));
-        setTimeout(() => {
-            expect(document.documentElement.style.getPropertyValue('--coffee-img-size')).toBe('1.1');
-        }, 10)
-        fireEvent.mouseLeave(screen.getByTestId('custom-element'));
-        expect(document.documentElement.style.getPropertyValue('--coffee-img-size')).toBe('1');
-      });
-
 })

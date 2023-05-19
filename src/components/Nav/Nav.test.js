@@ -7,13 +7,6 @@ import { act } from 'react-dom/test-utils';
 import Nav from "./Nav.js";
 import App from '../../App.js';
 
-async function resetToHomePage() {
-    const user = userEvent.setup();
-    await act(async () => {
-        await user.click(screen.getByRole('link', {name: 'Home'}));
-    })
-};
-
 describe('Nav component', () => {
     it('Nav component renders correctly', () => {
         render(

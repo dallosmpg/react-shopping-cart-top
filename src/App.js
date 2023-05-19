@@ -27,11 +27,11 @@ function App() {
     if (target) {
       const coffeeImgSize = Number(window.getComputedStyle(target).getPropertyValue('--coffee-img-size'));
       if (coffeeImgSize === 1) {
-          console.log(document.documentElement.style);
-          document.documentElement.style.setProperty('--coffee-img-size', 1.1);
+        document.documentElement.style.setProperty('--coffee-img-size', 1.1);
       } else {
-          document.documentElement.style.setProperty('--coffee-img-size', 1);
+        document.documentElement.style.setProperty('--coffee-img-size', 1);
       }
+      console.log(document.documentElement.style);
     }
 }, [])
 
