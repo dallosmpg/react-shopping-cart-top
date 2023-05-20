@@ -3,6 +3,7 @@
 ### Components needed
 - Home
 - Shop
+  - Product
 - Nav
   - The shopping cart widget might be part of the navbar
 

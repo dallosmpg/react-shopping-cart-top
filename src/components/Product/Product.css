@@ -1,0 +1,16 @@
+.product-card {
+    width: 400px;
+    height: 420px;
+
+    gap: 1rem;
+
+    border: 1px solid white;
+}
+
+.product-card img {
+    max-width: 280px;
+}
+
+.product-text {
+    text-align: center;
+}

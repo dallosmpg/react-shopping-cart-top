@@ -1,0 +1,4 @@
+.products {
+    gap: 2.5rem;
+    flex-flow: row wrap;
+}
