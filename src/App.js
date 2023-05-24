@@ -11,6 +11,9 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const [svgColor, setSvgColor] = useState('#4f0842');
+  const [shoppingCartItems, setShoppingCartItems] = useState([]);
+  const [isShoppingCartBackgroundModalVis, setIsShoppingCartBackgroundModalVis] = useState(false);
+  const [shoppingCartIsHidden, setShoppingCartIsHidden] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
@@ -22,6 +25,10 @@ function App() {
     document.documentElement.style.setProperty('--svg-color', svgColor);
   }, [svgColor]);
 
+  useEffect(() => {
+    document.querySelector('.shopping-cart-background-modal').classList.toggle('visible');
+  }, [isShoppingCartBackgroundModalVis])
+
   const resizeCoffeeImg = useCallback(() => {
     const target = document.querySelector('.home-hero img')
     if (target) {
@@ -31,17 +38,22 @@ function App() {
       } else {
         document.documentElement.style.setProperty('--coffee-img-size', 1);
       }
-      console.log(document.documentElement.style);
+      // console.log(document.documentElement.style);
     }
 }, [])
+
+  function setShoppingCartRelatedVis() {
+    setShoppingCartIsHidden(prevIsHidden => !prevIsHidden)
+    setIsShoppingCartBackgroundModalVis(prevIsHidden => !prevIsHidden)
+  }
 
   return (
     <Router >  
     <div className="wrapper">
-      <Nav resizeCoffeeImg={resizeCoffeeImg} test='Test' />
+      <Nav setShoppingCartRelatedVis={setShoppingCartRelatedVis} shoppingCartIsHidden={shoppingCartIsHidden} shoppingCartItems={shoppingCartItems} resizeCoffeeImg={resizeCoffeeImg} test='Test' />
         <Routes>
           <Route path="/" element={<Home resizeCoffeeImg={resizeCoffeeImg} setSvgColor={setSvgColor} />} />
-          <Route path="/shop" element={<Shop setSvgColor={setSvgColor}  />} />
+          <Route path="/shop" element={<Shop setShoppingCartItems={setShoppingCartItems} setSvgColor={setSvgColor}  />} />
           <Route path="/about" element={<About setSvgColor={setSvgColor}  />} />
         </Routes>
         <div className="custom-shape-divider-bottom-1683553058">
@@ -51,6 +63,7 @@ function App() {
               <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" className="shape-fill"></path>
           </svg>
         </div>
+        <div onClick={setShoppingCartRelatedVis} className='shopping-cart-background-modal'></div>
     </div>
     </Router>
   );

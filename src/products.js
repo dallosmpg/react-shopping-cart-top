@@ -4,11 +4,13 @@ const products = [
         productName: 'Kenyan dark',
         productDescription: 'Test desc.',
         productImg: img1,
+        productPrice: 9.99,
     },
     {
         productName: 'Colombian dark',
         productDescription: 'Test desc. 2',
-        productImg: 'Img placeholder 2'
+        productImg: 'Img placeholder 2',
+        productPrice: 12.99,
     }
 ]
 
