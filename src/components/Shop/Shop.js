@@ -12,7 +12,6 @@ export default function Shop({setSvgColor, setShoppingCartItems}) {
 
     return (
         <main className="shop">
-            <h1>Hello from Shop</h1>
             <div className="products flex-center">
                 {products.map((product, i) => {
                     return <Product setShoppingCartItems={setShoppingCartItems} key={i} data={product} />

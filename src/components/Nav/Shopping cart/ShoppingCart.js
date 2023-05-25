@@ -1,16 +1,35 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import './ShoppingCart.css';
 import ShoppingCartItem from "./Shopping cart item/ShoppingCartItem";
 
-export default function ShoppingCart({shoppingCartItems, shoppingCartIsHidden}) {
+export default function ShoppingCart({shoppingCartItems, shoppingCartIsHidden, setShoppingCartRelatedVis}) {
+    const [shoppingCartTotalPrice, setShoppingCartTotalPrice] = useState(0)
 
     useEffect(() => {
         document.querySelector('.shopping-cart').classList.toggle('visible')
-    }, [shoppingCartIsHidden])
+    }, [shoppingCartIsHidden]);
+
+    useEffect(() => {
+       const shoppingCartTotalPrice = shoppingCartItems
+       .map(item => item.quantity * item.productPrice)
+       .reduce((prevTotal, currTotal) => prevTotal + currTotal, 0);
+
+       setShoppingCartTotalPrice(shoppingCartTotalPrice);
+    }, [shoppingCartItems]);
+
 
     return (
             <div className='shopping-cart flex-center-column'>
-                {shoppingCartItems.length ? shoppingCartItems.map((item, i)=> <ShoppingCartItem key={i} shoppingCartItem={item} />) : <h3>At the moment, your cart is empty</h3>}
+                <div className="shopping-cart-items">
+                    {shoppingCartItems.length ? shoppingCartItems.map((item, i)=> <ShoppingCartItem key={i} shoppingCartItem={item} />) : <h2>At the moment, your cart is empty</h2>}
+                </div>
+                <div className="shopping-cart-menu">
+                    <h1>Total: {shoppingCartTotalPrice} $</h1>
+                    <div className="shopping-cart-buttons flex-center">
+                        <button onClick={setShoppingCartRelatedVis} className="back-to-store--cart-btn">Back to the store</button>
+                        <button disabled={shoppingCartItems.length === 0 ? true : false} className="place-order--cart-btn">Pay & place order</button>
+                    </div>
+                </div>
             </div>
     )
 }

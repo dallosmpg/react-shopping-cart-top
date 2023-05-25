@@ -21,7 +21,7 @@ export default function Nav({resizeCoffeeImg, shoppingCartItems, shoppingCartIsH
                 </li>
             </ul>
             <ShoppingCartBtn setShoppingCartRelatedVis={setShoppingCartRelatedVis}  shoppingCartItemCount={shoppingCartItems.length}/>
-            <ShoppingCart shoppingCartIsHidden={shoppingCartIsHidden} shoppingCartItems={shoppingCartItems}/>
+            <ShoppingCart setShoppingCartRelatedVis={setShoppingCartRelatedVis} shoppingCartIsHidden={shoppingCartIsHidden} shoppingCartItems={shoppingCartItems}/>
         </nav>
     )
 }
