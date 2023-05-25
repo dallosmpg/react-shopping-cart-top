@@ -4,7 +4,7 @@ import ShoppingCartItem from "./Shopping cart item/ShoppingCartItem";
 
 export default function ShoppingCart({shoppingCartItems, shoppingCartIsHidden, setShoppingCartRelatedVis}) {
     const [shoppingCartTotalPrice, setShoppingCartTotalPrice] = useState(0)
-
+    console.log(shoppingCartItems);
     useEffect(() => {
         document.querySelector('.shopping-cart').classList.toggle('visible')
     }, [shoppingCartIsHidden]);

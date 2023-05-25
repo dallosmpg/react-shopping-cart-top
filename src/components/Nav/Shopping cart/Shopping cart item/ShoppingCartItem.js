@@ -8,7 +8,7 @@ export default function ShoppingCartItem({shoppingCartItem}) {
             <h3>{shoppingCartItem.productName}</h3>
             <h5>Qty: {shoppingCartItem.quantity}</h5>
             <h4>{shoppingCartItem.productPrice} $</h4>
-            <h3>${shoppingCartItem.quantity * shoppingCartItem.productPrice} $</h3>
+            <h3>{shoppingCartItem.quantity * shoppingCartItem.productPrice} $</h3>
         </div>
     )
 }

@@ -35,7 +35,9 @@ export default function Product({data, setShoppingCartItems}) {
                     const productPurchaseObj = {quantity, productName: data.productName, productPrice: data.productPrice}
                     if (prevShoppingCart.map(item => item.productName).includes(data.productName)) {
                         const productIndex = prevShoppingCart.map(item => item.productName).indexOf(data.productName);
-                        return prevShoppingCart.splice(productIndex, 1, productPurchaseObj);
+                        const newCart = [...prevShoppingCart];
+                        newCart[productIndex] = productPurchaseObj;
+                        return newCart;
                     }
                    return [...prevShoppingCart, productPurchaseObj];
                 })}>Add to cart</button>

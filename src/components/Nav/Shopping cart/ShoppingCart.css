@@ -9,21 +9,22 @@
     position: absolute;
     /* top: 350%; */
     right: 1rem;
-    z-index: 1;
-
+    z-index: -10;
+    
     padding: 1.5rem;
     border: 3px solid white;
     border-radius: 10px;
-
+    
     height: 0vh;
     opacity: 0;
     background: grey;
-
+    
     transform: translate(0, 50%);
     transition: all .2s ease-in-out;
     transition-delay: .2s;
 }
 .shopping-cart.visible{
+    z-index: 1;
     height: 90vh;
     opacity: 1;
 }

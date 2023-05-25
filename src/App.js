@@ -50,7 +50,7 @@ function App() {
   return (
     <Router >  
     <div className="wrapper">
-      <Nav setShoppingCartRelatedVis={setShoppingCartRelatedVis} shoppingCartIsHidden={shoppingCartIsHidden} shoppingCartItems={shoppingCartItems} resizeCoffeeImg={resizeCoffeeImg} test='Test' />
+      <Nav setShoppingCartRelatedVis={setShoppingCartRelatedVis} shoppingCartIsHidden={shoppingCartIsHidden} shoppingCartItems={shoppingCartItems} resizeCoffeeImg={resizeCoffeeImg} />
         <Routes>
           <Route path="/" element={<Home resizeCoffeeImg={resizeCoffeeImg} setSvgColor={setSvgColor} />} />
           <Route path="/shop" element={<Shop setShoppingCartItems={setShoppingCartItems} setSvgColor={setSvgColor}  />} />

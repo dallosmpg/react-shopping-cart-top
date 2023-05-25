@@ -14,7 +14,7 @@ describe('Shop component', () => {
             <Shop  setSvgColor={setSvgColor}/>
         </BrowserRouter>
         )
-        const textElement = screen.getByText(/Hello from Shop/i);
+        const textElement = screen.getByText(/Kenyan Dark/i);
         expect(textElement).toBeInTheDocument();
       })
 
