@@ -4,7 +4,7 @@ import Product from "./Product/Product";
 import products from '../../products.js';
 
 
-export default function Shop({setSvgColor, setShoppingCartItems}) {
+export default function Shop({setSvgColor, setShoppingCartItems, updateShoppingCart, setQuantityOfProducts, quantityOfProducts}) {
     useEffect(() => {
         setSvgColor('#546770');
     }, []);
@@ -14,7 +14,7 @@ export default function Shop({setSvgColor, setShoppingCartItems}) {
         <main className="shop">
             <div className="products flex-center">
                 {products.map((product, i) => {
-                    return <Product setShoppingCartItems={setShoppingCartItems} key={i} data={product} />
+                    return <Product quantityOfProducts={quantityOfProducts} setQuantityOfProducts={setQuantityOfProducts} updateShoppingCart={updateShoppingCart} setShoppingCartItems={setShoppingCartItems} key={i} data={product} />
                 })}
             </div>
         </main>

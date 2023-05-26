@@ -14,6 +14,8 @@ function App() {
   const [shoppingCartItems, setShoppingCartItems] = useState([]);
   const [isShoppingCartBackgroundModalVis, setIsShoppingCartBackgroundModalVis] = useState(false);
   const [shoppingCartIsHidden, setShoppingCartIsHidden] = useState(true);
+  const [quantityOfProducts, setQuantityOfProducts] = useState({});
+
 
   useEffect(() => {
     setTimeout(() => {
@@ -47,13 +49,26 @@ function App() {
     setIsShoppingCartBackgroundModalVis(prevIsHidden => !prevIsHidden)
   }
 
+  function updateShoppingCart(data, quantity, prevShoppingCart) {
+    console.log('update shopping cart',data);
+    const productPurchaseObj = {quantity, productName: data.productName, productPrice: data.productPrice}
+    if (prevShoppingCart.map(item => item.productName).includes(data.productName)) {
+        const productIndex = prevShoppingCart.map(item => item.productName).indexOf(data.productName);
+        const newCart = [...prevShoppingCart];
+        newCart[productIndex] = productPurchaseObj;
+        return newCart;
+    }
+   return [...prevShoppingCart, productPurchaseObj];
+}
+
+
   return (
     <Router >  
     <div className="wrapper">
       <Nav setShoppingCartRelatedVis={setShoppingCartRelatedVis} shoppingCartIsHidden={shoppingCartIsHidden} shoppingCartItems={shoppingCartItems} resizeCoffeeImg={resizeCoffeeImg} />
         <Routes>
           <Route path="/" element={<Home resizeCoffeeImg={resizeCoffeeImg} setSvgColor={setSvgColor} />} />
-          <Route path="/shop" element={<Shop setShoppingCartItems={setShoppingCartItems} setSvgColor={setSvgColor}  />} />
+          <Route path="/shop" element={<Shop quantityOfProducts={quantityOfProducts} setQuantityOfProducts={setQuantityOfProducts} updateShoppingCart={updateShoppingCart} setShoppingCartItems={setShoppingCartItems} setSvgColor={setSvgColor}  />} />
           <Route path="/about" element={<About setSvgColor={setSvgColor}  />} />
         </Routes>
         <div className="custom-shape-divider-bottom-1683553058">

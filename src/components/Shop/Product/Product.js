@@ -1,12 +1,34 @@
-import React, {useState, useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import './Product.css';
 
-export default function Product({data, setShoppingCartItems}) {
-    const [quantity, setQuantity] = useState(1);
+export default function Product({data, setShoppingCartItems, updateShoppingCart, setQuantityOfProducts, quantityOfProducts}) {
+    // TODO: Create a function that handles setting the quantity state in App.js and somehow manage the quantity shown in Product comp.s
+        const [localQuantity, setLocalQuantity] = useState(1)
 
-    // useEffect(() => {
-    //     console.log(quantity);
-    // }, [quantity])
+        useEffect(() => {                
+            setQuantityOfProducts((prevQtyOfProducts) => {
+                const newObj = prevQtyOfProducts
+                newObj[data.productName] = 1;
+                return newObj;
+            })
+        }, [setQuantityOfProducts, data.productName]);
+
+        useEffect(() => {
+            console.log('New local state');
+            setQuantityOfProducts(prevQtyOfProducts => {
+                const newObj = prevQtyOfProducts;
+                newObj[data.productName] = localQuantity;
+                return newObj;
+            })
+        }, [localQuantity]);
+
+        useEffect(() => {
+            console.log('New local state update from global state');
+            if (quantityOfProducts[data.productName] !== localQuantity) {
+                setLocalQuantity(quantityOfProducts[data.productName])
+            }
+        }, [quantityOfProducts])
+
 
     return (
         <div className="product-card flex-center-column" data-testid="product">
@@ -25,22 +47,11 @@ export default function Product({data, setShoppingCartItems}) {
             </div>
             <div className="product-cart-menu flex-center-column">
                 <div className="quantity-selector">
-                    <button onClick={() => setQuantity(prevQuantity => --prevQuantity)}>-</button>
-                    <input type="tel" id="quantity" name="quantity" pattern="[0-9]+" onChange={(e) => {
-                        setQuantity(Number(e.target.value));
-                    }} value={quantity} />
-                    <button onClick={() => setQuantity(prevQuantity => ++prevQuantity)}>+</button>
+                    <button onClick={() => setLocalQuantity(localQuantity - 1)}>-</button>
+                    <input type="tel" id="quantity" name="quantity" pattern="[0-9]+" onChange={(e) => setLocalQuantity(Number(e.target.value))} value={localQuantity} />
+                    <button onClick={() => setLocalQuantity(localQuantity + 1)}>+</button>
                 </div>
-                <button onClick={() => setShoppingCartItems(prevShoppingCart => {
-                    const productPurchaseObj = {quantity, productName: data.productName, productPrice: data.productPrice}
-                    if (prevShoppingCart.map(item => item.productName).includes(data.productName)) {
-                        const productIndex = prevShoppingCart.map(item => item.productName).indexOf(data.productName);
-                        const newCart = [...prevShoppingCart];
-                        newCart[productIndex] = productPurchaseObj;
-                        return newCart;
-                    }
-                   return [...prevShoppingCart, productPurchaseObj];
-                })}>Add to cart</button>
+                <button onClick={() => setShoppingCartItems(prevShoppingCart => updateShoppingCart(data, localQuantity, prevShoppingCart))}>Add to cart</button>
             </div>
         </div>
     )
