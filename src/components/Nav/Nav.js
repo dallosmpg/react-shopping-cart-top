@@ -1,10 +1,10 @@
-import React, {useState} from "react";
+import React from "react";
 import './Nav.css';
 import { Link } from "react-router-dom";
 import ShoppingCart from "./Shopping cart/ShoppingCart";
 import ShoppingCartBtn from "./Shopping cart button/ShoppingCartBtn";
 
-export default function Nav({resizeCoffeeImg, shoppingCartItems, shoppingCartIsHidden, setShoppingCartRelatedVis}) {
+export default function Nav({resizeCoffeeImg, shoppingCartItems, shoppingCartIsHidden, setShoppingCartRelatedVis, setShoppingCartItems}) {
 
     return (
         <nav className="flex-center navigation">
@@ -21,7 +21,7 @@ export default function Nav({resizeCoffeeImg, shoppingCartItems, shoppingCartIsH
                 </li>
             </ul>
             <ShoppingCartBtn setShoppingCartRelatedVis={setShoppingCartRelatedVis}  shoppingCartItemCount={shoppingCartItems.length}/>
-            <ShoppingCart setShoppingCartRelatedVis={setShoppingCartRelatedVis} shoppingCartIsHidden={shoppingCartIsHidden} shoppingCartItems={shoppingCartItems}/>
+            <ShoppingCart setShoppingCartItems={setShoppingCartItems} setShoppingCartRelatedVis={setShoppingCartRelatedVis} shoppingCartIsHidden={shoppingCartIsHidden} shoppingCartItems={shoppingCartItems}/>
         </nav>
     )
 }

@@ -3,28 +3,29 @@ import './Product.css';
 
 export default function Product({data, setShoppingCartItems, updateShoppingCart, setQuantityOfProducts, quantityOfProducts}) {
     // TODO: Create a function that handles setting the quantity state in App.js and somehow manage the quantity shown in Product comp.s
-        const [localQuantity, setLocalQuantity] = useState(1)
+        const [localQuantity, setLocalQuantity] = useState(1);
+        const productName = data.productName;
 
         useEffect(() => {                
             setQuantityOfProducts((prevQtyOfProducts) => {
                 const newObj = prevQtyOfProducts
-                newObj[data.productName] = 1;
+                newObj[productName] = 1;
                 return newObj;
             })
-        }, [setQuantityOfProducts, data.productName]);
+        }, [setQuantityOfProducts, productName]);
 
         useEffect(() => {
             console.log('New local state');
             setQuantityOfProducts(prevQtyOfProducts => {
                 const newObj = prevQtyOfProducts;
-                newObj[data.productName] = localQuantity;
+                newObj[productName] = localQuantity;
                 return newObj;
             })
         }, [localQuantity]);
 
         useEffect(() => {
             console.log('New local state update from global state');
-            if (quantityOfProducts[data.productName] !== localQuantity) {
+            if (quantityOfProducts[productName] !== localQuantity) {
                 setLocalQuantity(quantityOfProducts[data.productName])
             }
         }, [quantityOfProducts])

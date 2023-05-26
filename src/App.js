@@ -11,9 +11,9 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const [svgColor, setSvgColor] = useState('#4f0842');
-  const [shoppingCartItems, setShoppingCartItems] = useState([]);
   const [isShoppingCartBackgroundModalVis, setIsShoppingCartBackgroundModalVis] = useState(false);
   const [shoppingCartIsHidden, setShoppingCartIsHidden] = useState(true);
+  const [shoppingCartItems, setShoppingCartItems] = useState([]);
   const [quantityOfProducts, setQuantityOfProducts] = useState({});
 
 
@@ -40,7 +40,6 @@ function App() {
       } else {
         document.documentElement.style.setProperty('--coffee-img-size', 1);
       }
-      // console.log(document.documentElement.style);
     }
 }, [])
 
@@ -50,7 +49,6 @@ function App() {
   }
 
   function updateShoppingCart(data, quantity, prevShoppingCart) {
-    console.log('update shopping cart',data);
     const productPurchaseObj = {quantity, productName: data.productName, productPrice: data.productPrice}
     if (prevShoppingCart.map(item => item.productName).includes(data.productName)) {
         const productIndex = prevShoppingCart.map(item => item.productName).indexOf(data.productName);
@@ -61,11 +59,10 @@ function App() {
    return [...prevShoppingCart, productPurchaseObj];
 }
 
-
   return (
     <Router >  
     <div className="wrapper">
-      <Nav setShoppingCartRelatedVis={setShoppingCartRelatedVis} shoppingCartIsHidden={shoppingCartIsHidden} shoppingCartItems={shoppingCartItems} resizeCoffeeImg={resizeCoffeeImg} />
+      <Nav setShoppingCartItems={setShoppingCartItems} setShoppingCartRelatedVis={setShoppingCartRelatedVis} shoppingCartIsHidden={shoppingCartIsHidden} shoppingCartItems={shoppingCartItems} resizeCoffeeImg={resizeCoffeeImg} />
         <Routes>
           <Route path="/" element={<Home resizeCoffeeImg={resizeCoffeeImg} setSvgColor={setSvgColor} />} />
           <Route path="/shop" element={<Shop quantityOfProducts={quantityOfProducts} setQuantityOfProducts={setQuantityOfProducts} updateShoppingCart={updateShoppingCart} setShoppingCartItems={setShoppingCartItems} setSvgColor={setSvgColor}  />} />
