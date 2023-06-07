@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import ShoppingCart from "./Shopping cart/ShoppingCart";
 import ShoppingCartBtn from "./Shopping cart button/ShoppingCartBtn";
 
-export default function Nav({resizeCoffeeImg, shoppingCartItems, shoppingCartIsHidden, setShoppingCartRelatedVis, setShoppingCartItems, setQuantityOfProducts}) {
+export default function Nav({quantityOfProducts, resizeCoffeeImg, shoppingCartItems, shoppingCartIsHidden, setShoppingCartRelatedVis, setShoppingCartItems, setQuantityOfProducts}) {
 
     return (
         <nav className="flex-center navigation">
@@ -21,7 +21,7 @@ export default function Nav({resizeCoffeeImg, shoppingCartItems, shoppingCartIsH
                 </li>
             </ul>
             <ShoppingCartBtn setShoppingCartRelatedVis={setShoppingCartRelatedVis}  shoppingCartItemCount={shoppingCartItems.length}/>
-            <ShoppingCart setQuantityOfProducts={setQuantityOfProducts} setShoppingCartItems={setShoppingCartItems} setShoppingCartRelatedVis={setShoppingCartRelatedVis} shoppingCartIsHidden={shoppingCartIsHidden} shoppingCartItems={shoppingCartItems}/>
+            <ShoppingCart quantityOfProducts={quantityOfProducts} setQuantityOfProducts={setQuantityOfProducts} setShoppingCartItems={setShoppingCartItems} setShoppingCartRelatedVis={setShoppingCartRelatedVis} shoppingCartIsHidden={shoppingCartIsHidden} shoppingCartItems={shoppingCartItems}/>
         </nav>
     )
 }

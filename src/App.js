@@ -75,7 +75,7 @@ function setupQtyOfProducts() {
   return (
     <Router >  
     <div className="wrapper">
-      <Nav setQuantityOfProducts={setQuantityOfProducts} setShoppingCartItems={setShoppingCartItems} setShoppingCartRelatedVis={setShoppingCartRelatedVis} shoppingCartIsHidden={shoppingCartIsHidden} shoppingCartItems={shoppingCartItems} resizeCoffeeImg={resizeCoffeeImg} />
+      <Nav quantityOfProducts={quantityOfProducts} setQuantityOfProducts={setQuantityOfProducts} setShoppingCartItems={setShoppingCartItems} setShoppingCartRelatedVis={setShoppingCartRelatedVis} shoppingCartIsHidden={shoppingCartIsHidden} shoppingCartItems={shoppingCartItems} resizeCoffeeImg={resizeCoffeeImg} />
         <Routes>
           <Route path="/" element={<Home resizeCoffeeImg={resizeCoffeeImg} setSvgColor={setSvgColor} />} />
           <Route path="/shop" element={<Shop quantityOfProducts={quantityOfProducts} setQuantityOfProducts={setQuantityOfProducts} updateShoppingCart={updateShoppingCart} setShoppingCartItems={setShoppingCartItems} setSvgColor={setSvgColor}  />} />
