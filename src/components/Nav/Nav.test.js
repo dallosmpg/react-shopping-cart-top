@@ -11,7 +11,7 @@ describe('Nav component', () => {
     it('Nav component renders correctly', () => {
         render(
         <BrowserRouter>
-            <Nav />
+            <Nav shoppingCartItems={[0,1]} />
         </BrowserRouter>
         )
         const textElement = screen.getByText(/The Beanery Store/i);
@@ -27,7 +27,7 @@ describe('Nav component', () => {
         await act(async () => {
             await user.click(screen.getByRole('link', {name: 'Shop'}));
         })
-        expect(screen.getByText('Hello from Shop')).toBeInTheDocument();
+        expect(screen.getByText('Kenyan dark')).toBeInTheDocument();
 
         await act(async () => {
             await user.click(screen.getByRole('link', {name: 'Home'}));

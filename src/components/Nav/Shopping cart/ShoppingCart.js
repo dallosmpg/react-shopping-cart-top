@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import './ShoppingCart.css';
 import ShoppingCartItem from "./Shopping cart item/ShoppingCartItem";
 
-export default function ShoppingCart({shoppingCartItems, shoppingCartIsHidden, setShoppingCartRelatedVis, setShoppingCartItems}) {
+export default function ShoppingCart({shoppingCartItems, shoppingCartIsHidden, setShoppingCartRelatedVis, setShoppingCartItems, setQuantityOfProducts}) {
     const [shoppingCartTotalPrice, setShoppingCartTotalPrice] = useState(0)
 
     useEffect(() => {
@@ -17,16 +17,10 @@ export default function ShoppingCart({shoppingCartItems, shoppingCartIsHidden, s
        setShoppingCartTotalPrice(newShoppingCartTotalPrice);
     }, [shoppingCartItems]);
 
-    useEffect(() => {
-        console.log('shopping cart - items');
-        console.log(shoppingCartItems);
-    }, [shoppingCartItems])
-
-
     return (
             <div className='shopping-cart flex-center-column'>
                 <div className="shopping-cart-items">
-                    {shoppingCartItems.length ? shoppingCartItems.map((item, i)=> <ShoppingCartItem setShoppingCartItems={setShoppingCartItems} key={i} shoppingCartItem={item} />) : <h2>At the moment, your cart is empty</h2>}
+                    {shoppingCartItems.length ? shoppingCartItems.map((item, i)=> <ShoppingCartItem setQuantityOfProducts={setQuantityOfProducts} setShoppingCartItems={setShoppingCartItems} key={i} shoppingCartItem={item} />) : <h2>At the moment, your cart is empty</h2>}
                 </div>
                 <div className="shopping-cart-menu">
                     <h1>Total: {shoppingCartTotalPrice} $</h1>

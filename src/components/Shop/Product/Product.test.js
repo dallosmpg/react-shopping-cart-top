@@ -6,24 +6,36 @@ import "@testing-library/jest-dom";  // optional
 import Product from "./Product";
 import userEvent from "@testing-library/user-event";
 import { act } from "react-dom/test-utils";
-import products from '../../products.js';
+import products from './Product';
+import App from '../../../App';
+
 
 const product = products[0];
 
 describe('Testing Product component', () => {
-    it('Has a quantity state of 1 on render', () => {
-        render(<Product data={product} />)
+    it('Has a quantity state of 1 on render', async () => {
+        render(<App />) 
+        const user = userEvent.setup();
 
-        const productElem = screen.getByRole('textbox');
-        expect(productElem.value).toBe('1'); 
+        await act(async () => {
+            await user.click(screen.getByRole('link', {name: 'Shop'}));
+        })
+
+
+        const productElem = screen.getAllByRole('textbox');
+        expect(productElem[0].value).toBe('1'); 
     })
 
     it('Adds 1 to state and renders input with new value', async () => {
-        render(<Product data={product} />);
+        render(<App />) 
         const user = userEvent.setup();
 
-        const plusBtnElem = screen.getByText('+');
-        const productInputElem = screen.getByRole('textbox');
+        await act(async () => {
+            await user.click(screen.getByRole('link', {name: 'Shop'}));
+        })
+
+        const plusBtnElem = screen.getAllByText('+')[0];
+        const productInputElem = screen.getAllByRole('textbox')[0];
      
         await act(async () => await user.click(plusBtnElem))
         expect(productInputElem.value).toBe('2');
@@ -37,11 +49,15 @@ describe('Testing Product component', () => {
     })
 
     it('Subtracts 1 to state and renders input with new value when - btn is pushed', async () => {
-        render(<Product data={product} />);
+        render(<App />) 
         const user = userEvent.setup();
 
-        const minusBtnElem = screen.getByText('-');
-        const productInputElem = screen.getByRole('textbox');
+        await act(async () => {
+            await user.click(screen.getByRole('link', {name: 'Shop'}));
+        })
+
+        const minusBtnElem = screen.getAllByText('-')[0];
+        const productInputElem = screen.getAllByRole('textbox')[0];
      
         await act(async () => await user.click(minusBtnElem))
         expect(productInputElem.value).toBe('0');

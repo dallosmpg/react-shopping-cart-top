@@ -9,7 +9,7 @@ const products = [
     {
         productName: 'Colombian dark',
         productDescription: 'Test desc. 2',
-        productImg: 'Img placeholder 2',
+        productImg: img1,
         productPrice: 12.99,
     }
 ]

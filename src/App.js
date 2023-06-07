@@ -7,6 +7,7 @@ import Nav from './components/Nav/Nav';
 import About from './components/About/About';
 
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import products from './products';
 
 
 function App() {
@@ -14,8 +15,10 @@ function App() {
   const [isShoppingCartBackgroundModalVis, setIsShoppingCartBackgroundModalVis] = useState(false);
   const [shoppingCartIsHidden, setShoppingCartIsHidden] = useState(true);
   const [shoppingCartItems, setShoppingCartItems] = useState([]);
-  const [quantityOfProducts, setQuantityOfProducts] = useState({});
-
+  const [quantityOfProducts, setQuantityOfProducts] = useState(setupQtyOfProducts());
+  useEffect(() => {
+    console.log(quantityOfProducts, 'App state - new qty');
+  }, [quantityOfProducts])
 
   useEffect(() => {
     setTimeout(() => {
@@ -59,10 +62,20 @@ function App() {
    return [...prevShoppingCart, productPurchaseObj];
 }
 
+function setupQtyOfProducts() {
+  const productQuantityObj = {}
+
+  products.forEach(product => {
+    productQuantityObj[product.productName] = 1;
+  })
+
+  return productQuantityObj;
+}
+
   return (
     <Router >  
     <div className="wrapper">
-      <Nav setShoppingCartItems={setShoppingCartItems} setShoppingCartRelatedVis={setShoppingCartRelatedVis} shoppingCartIsHidden={shoppingCartIsHidden} shoppingCartItems={shoppingCartItems} resizeCoffeeImg={resizeCoffeeImg} />
+      <Nav setQuantityOfProducts={setQuantityOfProducts} setShoppingCartItems={setShoppingCartItems} setShoppingCartRelatedVis={setShoppingCartRelatedVis} shoppingCartIsHidden={shoppingCartIsHidden} shoppingCartItems={shoppingCartItems} resizeCoffeeImg={resizeCoffeeImg} />
         <Routes>
           <Route path="/" element={<Home resizeCoffeeImg={resizeCoffeeImg} setSvgColor={setSvgColor} />} />
           <Route path="/shop" element={<Shop quantityOfProducts={quantityOfProducts} setQuantityOfProducts={setQuantityOfProducts} updateShoppingCart={updateShoppingCart} setShoppingCartItems={setShoppingCartItems} setSvgColor={setSvgColor}  />} />

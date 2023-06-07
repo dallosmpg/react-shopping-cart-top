@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ShoppingCartItem({shoppingCartItem, setShoppingCartItems}) {
+export default function ShoppingCartItem({shoppingCartItem, setShoppingCartItems, setQuantityOfProducts}) {
     const productName = shoppingCartItem.productName;
 
     return (
@@ -9,7 +9,15 @@ export default function ShoppingCartItem({shoppingCartItem, setShoppingCartItems
             <h5>Qty: {shoppingCartItem.quantity}</h5>
             <h4>{shoppingCartItem.productPrice} $</h4>
             <h3>{shoppingCartItem.quantity * shoppingCartItem.productPrice} $</h3>
-            <button>-</button>
+            <button onClick={() => {
+                setQuantityOfProducts(prevQuantity => {
+                    const newQuantity = {...prevQuantity};
+                    console.log(newQuantity);
+                    newQuantity[productName]--;
+                    return newQuantity;
+                })  
+            }
+            }>-</button>
             <button>+</button>
             <button onClick={() => {
                         setShoppingCartItems(prevShoppingCart => {
