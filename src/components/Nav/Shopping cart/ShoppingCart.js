@@ -14,7 +14,7 @@ export default function ShoppingCart({quantityOfProducts, shoppingCartItems, sho
        .map(item => item.quantity * item.productPrice)
        .reduce((prevTotal, currTotal) => prevTotal + currTotal, 0);
 
-       setShoppingCartTotalPrice(newShoppingCartTotalPrice);
+       setShoppingCartTotalPrice(newShoppingCartTotalPrice.toFixed(2));
     }, [shoppingCartItems]);
 
     console.log(shoppingCartItems);
