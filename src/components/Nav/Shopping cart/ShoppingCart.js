@@ -17,14 +17,13 @@ export default function ShoppingCart({quantityOfProducts, shoppingCartItems, sho
        setShoppingCartTotalPrice(newShoppingCartTotalPrice.toFixed(2));
     }, [shoppingCartItems]);
 
-    console.log(shoppingCartItems);
 
     return (
-            <div className='shopping-cart flex-center-column'>
+            <div className='shopping-cart flex-center-column' data-testid="shopping-cart-test">
                 <div className="shopping-cart-items">
                     {shoppingCartItems.length ? shoppingCartItems.map((item, i)=> <ShoppingCartItem quantityOfProducts={quantityOfProducts} setQuantityOfProducts={setQuantityOfProducts} setShoppingCartItems={setShoppingCartItems} key={i} shoppingCartItem={item} />) : <h2>At the moment, your cart is empty</h2>}
                 </div>
-                <div className="shopping-cart-menu">
+                <div className="shopping-cart-menu flex-center-column">
                     <h1>Total: {shoppingCartTotalPrice} $</h1>
                     <div className="shopping-cart-buttons flex-center">
                         <button onClick={setShoppingCartRelatedVis} className="back-to-store--cart-btn">Back to the store</button>

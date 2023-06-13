@@ -1,4 +1,5 @@
 import React from "react";
+import './ShoppingCartItem.css'
 
 export default function ShoppingCartItem({quantityOfProducts, shoppingCartItem, setShoppingCartItems, setQuantityOfProducts}) {
     const productName = shoppingCartItem.productName;
@@ -43,14 +44,16 @@ export default function ShoppingCartItem({quantityOfProducts, shoppingCartItem, 
             <h5>Qty: {shoppingCartItem.quantity}</h5>
             <h4>{shoppingCartItem.productPrice} $</h4>
             <h3>{(shoppingCartItem.quantity * shoppingCartItem.productPrice).toFixed(2)} $</h3>
-            <button onClick={decreaseProductQuantity}>-</button>
-            <button onClick={increaseProductQuantity}>+</button>
-            <button onClick={() => {
-                        setShoppingCartItems(prevShoppingCart => {
-                            const newShoppingCar = prevShoppingCart.filter(item => item.productName !== productName);
-                            return newShoppingCar;
-                        })                
-            }}>X</button>
+            <div className="shopping-cart-item-menu flex-center">
+                <button onClick={decreaseProductQuantity}>-</button>
+                <button onClick={increaseProductQuantity}>+</button>
+                <button onClick={() => {
+                            setShoppingCartItems(prevShoppingCart => {
+                                const newShoppingCar = prevShoppingCart.filter(item => item.productName !== productName);
+                                return newShoppingCar;
+                            })
+                }}>X</button>
+            </div>
         </div>
     )
 }

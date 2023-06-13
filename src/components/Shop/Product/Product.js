@@ -15,22 +15,20 @@ export default function Product({data, setShoppingCartItems, updateShoppingCart,
                 <div className="product-text">
                     <h3>{data.productName}</h3>
                     <h2>{data.productPrice} $</h2>
-                    <p>{data.productDescription}</p>
+                    <p style={{overflow: "scroll", height: '100px'}}>{data.productDescription}</p>
                 </div>
             </div>
-            <div className="product-menu flex-center-column">
-                <a href="/">Visit product page</a>
-            </div>
             <div className="product-cart-menu flex-center-column">
-                <div className="quantity-selector">
-                    <button onClick={() => setQuantityOfProducts(prevQty => {
+                {/* <a href="/">Visit product page</a> */}
+                <div className="quantity-selector flex-center">
+                    <button className="flex-center" onClick={() => setQuantityOfProducts(prevQty => {
                         const newQty = {...prevQty};
                         newQty[productName] = newQty[productName] - 1;
                         console.log(newQty);
                         return newQty;
                     })}>-</button>
                     <input type="tel" id="quantity" name="quantity" pattern="[0-9]+" onChange={(e) => console.log(e.target.value)} value={productQty} />
-                    <button onClick={() => setQuantityOfProducts(prevQty => {
+                    <button className="flex-center" onClick={() => setQuantityOfProducts(prevQty => {
                         const newQty = {...prevQty};
                         newQty[productName] = newQty[productName] + 1;
                         console.log(newQty);
