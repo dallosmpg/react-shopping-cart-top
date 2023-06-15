@@ -1,12 +1,15 @@
 .product-card {
     width: 500px;
     height: 570px;
+    box-sizing: border-box;
 
     gap: 1rem;
 
-    border: 1px solid white;
+    border: 3px solid #a1c5d7;
+    /* box-shadow: 3px 3px 10px black; */
 
-    background-color: #1c1b22;
+    background: #1c1b22;
+
 }
 
 .product-card img {

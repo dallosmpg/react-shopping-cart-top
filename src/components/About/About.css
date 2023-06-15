@@ -1,0 +1,27 @@
+.about {
+    gap: 4rem;
+}
+.about .links {
+    gap: 2rem;
+}
+.about .summary p {
+    font-family: monospace;
+    font-size: 1.2rem;
+    text-align: justify;
+    width: 50%;
+}
+.about svg {
+    width: 10rem;
+    height: 10rem;
+
+    color: white;
+}
+.about a, .about svg {
+    transition: all ease-in-out .2s;
+    border-radius: 50%;
+}
+.about a:hover, .about svg:hover {
+    transform: scale(1.1);
+    background-color: aliceblue;
+    color: black;
+}
