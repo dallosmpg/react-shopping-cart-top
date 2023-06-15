@@ -6,7 +6,11 @@ export default function ShoppingCart({quantityOfProducts, shoppingCartItems, sho
     const [shoppingCartTotalPrice, setShoppingCartTotalPrice] = useState(0)
 
     useEffect(() => {
-        document.querySelector('.shopping-cart').classList.toggle('visible')
+        if (shoppingCartIsHidden) {
+            document.querySelector('.shopping-cart').classList.remove('visible')
+        } else {
+            document.querySelector('.shopping-cart').classList.add('visible')
+        }
     }, [shoppingCartIsHidden]);
 
     useEffect(() => {

@@ -24,14 +24,16 @@ export default function Product({data, setShoppingCartItems, updateShoppingCart,
                     <button className="flex-center" onClick={() => setQuantityOfProducts(prevQty => {
                         const newQty = {...prevQty};
                         newQty[productName] = newQty[productName] - 1;
-                        console.log(newQty);
                         return newQty;
                     })}>-</button>
-                    <input type="tel" id="quantity" name="quantity" pattern="[0-9]+" onChange={(e) => console.log(e.target.value)} value={productQty} />
+                    <input type="tel" id="quantity" name="quantity" pattern="[0-9]+" onChange={(e) => setQuantityOfProducts(prevQty => {
+                        const newQty = {...prevQty};
+                        newQty[productName] = e.target.value;
+                        return newQty;
+                    })} value={productQty} />
                     <button className="flex-center" onClick={() => setQuantityOfProducts(prevQty => {
                         const newQty = {...prevQty};
                         newQty[productName] = newQty[productName] + 1;
-                        console.log(newQty);
                         return newQty;
                     })}>+</button>
                 </div>

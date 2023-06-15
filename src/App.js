@@ -16,9 +16,6 @@ function App() {
   const [shoppingCartIsHidden, setShoppingCartIsHidden] = useState(true);
   const [shoppingCartItems, setShoppingCartItems] = useState([]);
   const [quantityOfProducts, setQuantityOfProducts] = useState(setupQtyOfProducts());
-  useEffect(() => {
-    console.log(quantityOfProducts, 'App state - new qty');
-  }, [quantityOfProducts])
 
   useEffect(() => {
     setTimeout(() => {
@@ -31,7 +28,11 @@ function App() {
   }, [svgColor]);
 
   useEffect(() => {
-    document.querySelector('.shopping-cart-background-modal').classList.toggle('visible');
+    if (isShoppingCartBackgroundModalVis) {
+      document.querySelector('.shopping-cart-background-modal').classList.add('visible');
+    } else {
+      document.querySelector('.shopping-cart-background-modal').classList.remove('visible');
+    }
   }, [isShoppingCartBackgroundModalVis])
 
   const resizeCoffeeImg = useCallback(() => {
