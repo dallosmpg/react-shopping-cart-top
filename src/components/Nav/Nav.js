@@ -10,13 +10,13 @@ export default function Nav({quantityOfProducts, resizeCoffeeImg, shoppingCartIt
         <nav className="flex-center navigation">
             <h1>The Beanery Store</h1>
             <ul className="flex-center">
-                <li>
+                <li className={shoppingCartIsHidden ? "" : "disabled-link"}>
                     <Link className="home-nav" to='/'>Home</Link>
                 </li>
-                <li>
+                <li className={shoppingCartIsHidden ? "" : "disabled-link"}>
                     <Link onMouseEnter={resizeCoffeeImg} onMouseLeave={resizeCoffeeImg} className="shop-nav" to='/shop'>Shop</Link>
                 </li>
-                <li>
+                <li className={shoppingCartIsHidden ? "" : "disabled-link"}>
                     <Link className="about-nav" to='/about'>About</Link>
                 </li>
             </ul>

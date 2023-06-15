@@ -14,7 +14,7 @@ describe('About component', () => {
             <About setSvgColor={setSvgColor} />
         </BrowserRouter>
         )
-        const textElement = screen.getByText(/Hello from About/i);
+        const textElement = screen.getByText(/Hi! I'm Martin. I studied psychology at Budapest/i);
         expect(textElement).toBeInTheDocument();
       })
 ;})

@@ -22,7 +22,7 @@ describe('Nav component', () => {
         render(<App />);
         const user = userEvent.setup();
 
-        expect(screen.getByText('New arrivals!')).toBeInTheDocument();
+        expect(screen.getByText('Brazilian dark!')).toBeInTheDocument();
         expect(screen.getByRole('link', {name: 'Shop'})).toBeInTheDocument();
         await act(async () => {
             await user.click(screen.getByRole('link', {name: 'Shop'}));
@@ -38,12 +38,12 @@ describe('Nav component', () => {
         render(<App />);
         const user = userEvent.setup();
 
-        expect(screen.getByText('New arrivals!')).toBeInTheDocument();
+        expect(screen.getByText('Brazilian dark')).toBeInTheDocument();
         expect(screen.getByRole('link', {name: 'About'})).toBeInTheDocument();
         await act(async () => {
             await user.click(screen.getByRole('link', {name: 'About'}));
         })
-        expect(screen.getByText('Hello from About')).toBeInTheDocument();
+        expect(screen.getByText("Hi! I'm Martin.")).toBeInTheDocument();
 
         await act(async () => {
             await user.click(screen.getByRole('link', {name: 'Home'}));
@@ -52,6 +52,9 @@ describe('Nav component', () => {
 
     it('Returns to Home page after navigated to Home', () => {
         render(<App />);
+        const user = userEvent.setup();
+
+        user.click(screen.getByTestId('shopping-cart-btn-test'))
 
         expect(screen.getByText('New arrivals!')).toBeInTheDocument();
         expect(screen.getByRole('link', {name: 'About'})).toBeInTheDocument();

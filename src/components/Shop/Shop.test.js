@@ -19,7 +19,7 @@ describe('Shop component', () => {
         })
 
 
-        const textElement = screen.getByText(/Kenyan Dark/i);
+        const textElement = screen.getByText('Kenyan Dark');
         expect(textElement).toBeInTheDocument();
       })
 

@@ -41,3 +41,11 @@ main {
 
     fill: var(--svg-color);
 }  
+
+.disabled-link {
+    /* Apply styles to visually disable the link */
+    pointer-events: none;
+    color: gray;
+    text-decoration: none;
+    cursor: not-allowed;
+}
