@@ -1,16 +1,20 @@
 {
   "files": {
-    "main.css": "/react-shopping-cart-top/static/css/main.2e46e229.css",
-    "main.js": "/react-shopping-cart-top/static/js/main.665e1a42.js",
-    "static/media/P1080562_10.jpg": "/react-shopping-cart-top/static/media/P1080562_10.3c39e63d79ad0a71f3f6.jpg",
+    "main.css": "/react-shopping-cart-top/static/css/main.56e1c5c3.css",
+    "main.js": "/react-shopping-cart-top/static/js/main.aa979181.js",
     "static/media/pngwing.com.png": "/react-shopping-cart-top/static/media/pngwing.com.c89dd3a66899643801f6.png",
     "static/media/250.BB_.nk_.z.v.bean_.webp": "/react-shopping-cart-top/static/media/250.BB_.nk_.z.v.bean_.41562799162e6aa0a414.webp",
+    "static/media/dang-cong-JqF4IS65xEg-unsplash.jpg": "/react-shopping-cart-top/static/media/dang-cong-JqF4IS65xEg-unsplash.6a81770b182cb274b2e2.jpg",
+    "static/media/battlecreek-coffee-roasters-mY4hAwxNA_0-unsplash.jpg": "/react-shopping-cart-top/static/media/battlecreek-coffee-roasters-mY4hAwxNA_0-unsplash.860e0da03308cb1ac070.jpg",
+    "static/media/rodrigo-flores-sn87TQ_o7zs-unsplash.jpg": "/react-shopping-cart-top/static/media/rodrigo-flores-sn87TQ_o7zs-unsplash.17c757bb30e3240bb26d.jpg",
+    "static/media/tina-guina-obV_LM0KjxY-unsplash.jpg": "/react-shopping-cart-top/static/media/tina-guina-obV_LM0KjxY-unsplash.38803c0515df4c514d8f.jpg",
+    "static/media/nicolas-solerieu-GSnb5l2yc2M-unsplash.jpg": "/react-shopping-cart-top/static/media/nicolas-solerieu-GSnb5l2yc2M-unsplash.77e058f0b80470c0eee3.jpg",
     "index.html": "/react-shopping-cart-top/index.html",
-    "main.2e46e229.css.map": "/react-shopping-cart-top/static/css/main.2e46e229.css.map",
-    "main.665e1a42.js.map": "/react-shopping-cart-top/static/js/main.665e1a42.js.map"
+    "main.56e1c5c3.css.map": "/react-shopping-cart-top/static/css/main.56e1c5c3.css.map",
+    "main.aa979181.js.map": "/react-shopping-cart-top/static/js/main.aa979181.js.map"
   },
   "entrypoints": [
-    "static/css/main.2e46e229.css",
-    "static/js/main.665e1a42.js"
+    "static/css/main.56e1c5c3.css",
+    "static/js/main.aa979181.js"
   ]
 }
