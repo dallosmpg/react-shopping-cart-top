@@ -70,3 +70,22 @@
 .product-card button:hover {
     background-color: #417792;
 }
+.product-img {
+    position: relative;
+    width: 100%;
+}
+.product-img p {
+    display: inline-block;
+    text-align: center;
+
+    font-size: .6rem;
+
+    position: absolute;
+    bottom: 0;
+
+    background-color: rgba(255,255,255, .8);
+    color: black;
+}
+.product-img p a {
+    color: #417792;
+}

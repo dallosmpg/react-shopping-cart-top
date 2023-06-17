@@ -6,11 +6,12 @@ export default function Product({data, setShoppingCartItems, updateShoppingCart,
     const productName = data.productName;
     const productQty = quantityOfProducts[productName];
 
+
     return (
         <div className="product-card flex-center-column">
             <div className="product-info flex-center-column">
-                <div className="product-img">
-                    <img src={data.productImg} alt={`${data.productName} coffee package`} />
+                <div className="product-img flex-center-column">
+                    <img src={data.productImg} alt={`${data.productAltTxt} coffee package`} />
                 </div>
                 <div className="product-text">
                     <h3>{data.productName}</h3>
